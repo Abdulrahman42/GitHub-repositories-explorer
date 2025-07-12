@@ -9,7 +9,7 @@ import { useGitHub } from "../context/GithubContext";
 
 const ListUser = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const { users, listRepoByUser, getUserRepos, loading } = useGitHub();
+  const { users, listRepoByUser, getUserRepos, loading, error } = useGitHub();
 
   const toggle = (index: number, user: string) => {
     setOpenIndex((prev) => {
@@ -21,6 +21,10 @@ const ListUser = () => {
       }
     });
   };
+
+  if (error) {
+    return <p className="text-red-500">Error: {error}</p>;
+  }
 
   return (
     <div className="mt-4">
