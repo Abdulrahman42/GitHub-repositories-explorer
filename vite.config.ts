@@ -5,5 +5,8 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(),tailwindcss(),],
-   base: '/GitHub-repositories-explorer/',
+  base: '/GitHub-repositories-explorer/',
+  server: {
+    port: 3001,
+  },
 })
